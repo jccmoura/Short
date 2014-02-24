@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Shorten</title>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
+<script type="text/template" id="tempShort">
+    
+      <td><a href= '<%= kurto %>' class='link'> <%= kurto %> </a> <span class="badge"> <%= count %> </span></td>
+      <td><a href= '<%= url %>' > <%= url %> </a></td>
+    
+</script>
+
+<nav class="navbar navbar-inverse" role="navigation">Encurtador</nav>
+
+ <div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Novo shortened url</h3>
+        </div>
+        <div class="panel-body">
+          <form role="form">
+            <div class="input-group">
+              <input type="text" name="url" class="form-control" placeholder="Enter a url..." id="tx">
+              <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit">Shorten!</button>
+              </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Short</th>
+            <th>Original</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+
+<script src="shortmodel.js"></script>
+<script src="shortcollection.js"></script>
+<script src="shortview.js"></script>
+<script src="shortcollectionview.js"></script>
+<script src="main.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</body>
+
+

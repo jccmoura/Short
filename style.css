@@ -1,0 +1,38 @@
+body {
+    background-color: hsl(191, 52%, 50%);
+}
+
+table {
+    border-color: black;
+}
+
+tbody {
+    color: white;
+}
+
+a {
+	color: hsl(56, 70%, 50%);
+}
+
+th {
+	color: white;
+	font-weight: bold;
+	text-align: left;
+	width: 200px;
+}	
+
+td {
+	width: 200px;
+}
+
+nav {
+	color: white;
+	font-weight: bold;
+	vertical-align: middle;
+	font-size: 25px;
+	font-family: 'Mv Boli';
+}
+
+.badge {
+	background-color: hsl(249, 82%, 50%);
+}
