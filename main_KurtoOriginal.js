@@ -3,7 +3,7 @@
 var shortCol = new ShortCollection();
 var shortColView = new ShortCollectionView({collection: shortCol});
 
-$('tbody').append(shortColView.el);
+$('table').append(shortColView.el);
 
 carrega();
 
