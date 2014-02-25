@@ -12,8 +12,7 @@ var ShortCollectionView = Backbone.View.extend({
 	},
 	addOne: function(shortmodel){
 		var viewshort = new ShortView({ model: shortmodel });
-		//this.$el.append(viewshort.render().el);
-		document.body.appendChild(viewshort.render().el);
+		this.el.appendChild(viewshort.render().el);
 	},
 	remove: function(){
 		this.$el.empty();
