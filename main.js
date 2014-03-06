@@ -1,4 +1,24 @@
 
+ var domain = 'http://api.mauricio.r42.in/';
+ //var domain = 'http://localhost:8000/';
+ 
+ 
+ var socket = io.connect(domain);
+ 
+  socket.on('conn', function (data) {
+    console.log(data);
+  });
+  
+  socket.on('alt', function(dados){
+    console.log('Disparou ALT : ', dados);
+    var shorten = new ShortModel();
+    shrt = domain  + dados['hash'].id;
+    shorten.set({kurto: shrt, count: dados['hash'].count , url: dados['hash'].url});
+    shortCol.add(shorten);
+    shortColView.render();
+  });
+
+
 //Cria short collection e View
 var shortCol = new ShortCollection();
 var shortColView = new ShortCollectionView({collection: shortCol});
@@ -20,8 +40,8 @@ $('.link').click(carrega);
 //Enter
 $( '#tx' ).keypress(function( event ) {
   if ( event.which == 13 ) {
-     event.preventDefault();
-     encurtar();
+    event.preventDefault();
+    encurtar();
   }
 });
 
@@ -33,7 +53,7 @@ function encurtar(){
   console.log('encurtar');
   //criar novo
   $.ajax({
-    url: 'http://api.mauricio.r42.in/',
+    url: domain,
     type: 'POST',
     data: { url: $('#tx').val() },
     success: function(res) {
@@ -41,24 +61,25 @@ function encurtar(){
       $('tbody').remove();
       $('table').append(shortColView.el);
       carrega();
-      }
+      $('#tx').val('');
+    }
   });
 }
 
 function carrega(){
    // obter lista de shortened urls
-  $.ajax({url: 'http://api.mauricio.r42.in/recent',
-         success: function(recent) {
-          console.log(recent);
-          shortCol.reset();
-          shortColView.remove();
-          for (var i=0; i < recent.length; i++) {
-            var shorten = new ShortModel();
-            shrt = 'http://api.mauricio.r42.in/' + recent[i].id;
-            shorten.set({kurto: shrt, count: recent[i].count , url: recent[i].url});
-            shortCol.add(shorten);
-          }
-          shortColView.render();
-          }
-        })
+  $.ajax({url: domain  + 'recent',
+    success: function(recent) {
+      console.log(recent);
+      shortCol.reset();
+      shortColView.remove();
+      for (var i=0; i < recent.length; i++) {
+        var shorten = new ShortModel();
+        shrt = domain  + recent[i].id;
+        shorten.set({kurto: shrt, count: recent[i].count , url: recent[i].url});
+        shortCol.add(shorten);
+      }
+      shortColView.render();
+    }
+  })
 }

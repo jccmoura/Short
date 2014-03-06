@@ -33,7 +33,8 @@ function encurtar(){
   console.log('encurtar');
   //criar novo
   $.ajax({
-    url: 'http://kurto.r42.in/',
+	url: 'http://api.mauricio.r42.in/',
+    //url: 'http://kurto.r42.in/',
     type: 'POST',
     data: { url: $('#tx').val() },
     success: function(res) {
@@ -47,14 +48,16 @@ function encurtar(){
 
 function carrega(){
    // obter lista de shortened urls
-  $.ajax({url: 'http://kurto.r42.in/recent',
+   $.ajax({url: 'http://api.mauricio.r42.in/recent',
+ //$.ajax({url: 'http://kurto.r42.in/recent',
          success: function(recent) {
           console.log(recent);
           shortCol.reset();
           shortColView.remove();
           for (var i=0; i < recent.length; i++) {
             var shorten = new ShortModel();
-            shrt = 'http://kurto.r42.in/' + recent[i].id;
+			shrt = 'http://api.mauricio.r42.in/' + recent[i].id;
+            //shrt = 'http://kurto.r42.in/' + recent[i].id;
             shorten.set({kurto: shrt, count: recent[i].count , url: recent[i].url});
             shortCol.add(shorten);
           }
