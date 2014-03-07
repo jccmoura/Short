@@ -51,13 +51,17 @@ $( '#tx' ).keypress(function( event ) {
 
 function encurtar(){
   console.log('encurtar');
-  var escape = $('#tx').val();
-  var url = $(escape).text();                                                          //Prevenir Hacks por inserção de html
+  
+  var iniUrl = $('#tx').val();
+  var cleanUrl = iniUrl.replace(/(<([^>]+)>)/ig, '');
+
+  console.log('URL Clean ', cleanUrl);
+  
   //criar novo
   $.ajax({
     url: domain,
     type: 'POST',
-    data: { url: url},
+    data: { url: cleanUrl },
     success: function(res) {
       console.log('Done! Result:', res)
       $('tbody').remove();
