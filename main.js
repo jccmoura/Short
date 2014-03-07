@@ -11,11 +11,15 @@
   
   socket.on('alt', function(dados){
     console.log('Disparou ALT : ', dados);
-    var shorten = new ShortModel();
-    shrt = domain  + dados['hash'].id;
-    shorten.set({kurto: shrt, count: dados['hash'].count , url: dados['hash'].url});
-    shortCol.add(shorten);
-    shortColView.render();
+    shortCol.reset();
+    shortColView.remove();
+    for (var i=0; i < dados.length; i++) {
+      var shorten = new ShortModel();
+      shrt = domain  + dados[i].id;
+      shorten.set({kurto: shrt, count: dados[i].count , url: dados[i].url});
+      shortCol.add(shorten);
+      shortColView.render();
+    }
   });
 
 
