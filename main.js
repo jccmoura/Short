@@ -1,6 +1,6 @@
 
- var domain = 'http://api.mauricio.r42.in/';
- //var domain = 'http://localhost:8000/';
+ //var domain = 'http://api.mauricio.r42.in/';
+ var domain = 'http://localhost:8000/';
  
  
  var socket = io.connect(domain);
@@ -51,11 +51,13 @@ $( '#tx' ).keypress(function( event ) {
 
 function encurtar(){
   console.log('encurtar');
+  var escape = $('#tx').val();
+  var url = $(escape).text();                                                          //Prevenir Hacks por inserção de html
   //criar novo
   $.ajax({
     url: domain,
     type: 'POST',
-    data: { url: $('#tx').val() },
+    data: { url: url},
     success: function(res) {
       console.log('Done! Result:', res)
       $('tbody').remove();
