@@ -1,6 +1,6 @@
 
- //var domain = 'http://api.mauricio.r42.in/';
- var domain = 'http://localhost:8000/';
+ var domain = 'http://api.mauricio.r42.in/';
+ //var domain = 'http://localhost:8000/';
  
  
  var socket = io.connect(domain);
