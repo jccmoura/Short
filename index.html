@@ -12,19 +12,40 @@
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
 <script type="text/template" id="tempShort">
-    
       <td><a href= '<%= kurto %>' class='link' target="_blank"> <%= kurto %> </a> <span class="badge"> <%= count %> </span></td>
       <td><a href= 'http://<%= url %>' > <%= url %> </a></td>
-    
 </script>
 
 <script src="http://api.mauricio.r42.in/socket.io/socket.io.js"></script>
+
 <!-- 
 <script src="http://localhost:8000/socket.io/socket.io.js"></script>
 -->
 
-<nav class="navbar navbar-inverse" role="navigation">Encurtador</nav>
+<nav class="navbar navbar-inverse" role="navigation">Encurtador  
+<div class="btn-group" id="bt1">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id='usr'>
+      Sign In   
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="user" id='user'>
+        </div>
+	<div class="form-group">
+          <input type="text" class="form-control" placeholder="password" id='pwd'>
+        </div>
+        <button class="btn btn-primary"  id="login">Login</button>
+	<button class="btn btn-primary"  id="logoff">Logoff</button>
+      </form></li>
+    </ul>
+  </div>
+</nav>
 
+ 
+  
+ 
  <div class="container">
     <div class="panel panel-default">
         <div class="panel-heading">

@@ -31,8 +31,18 @@ nav {
 	vertical-align: middle;
 	font-size: 25px;
 	font-family: 'Mv Boli';
+	position:  relative;
+}
+
+#bt1{
+    position: absolute;
+    right: 120px;
 }
 
 .badge {
 	background-color: hsl(249, 82%, 50%);
+}
+
+#usr{
+    width:  200px;
 }
