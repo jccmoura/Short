@@ -18,7 +18,7 @@
 
 <script src="http://api.mauricio.r42.in/socket.io/socket.io.js"></script>
 
-<!-- 
+ <!--
 <script src="http://localhost:8000/socket.io/socket.io.js"></script>
 -->
 
@@ -34,7 +34,7 @@
           <input type="text" class="form-control" placeholder="user" id='user'>
         </div>
 	<div class="form-group">
-          <input type="text" class="form-control" placeholder="password" id='pwd'>
+          <input type="password" name="password" class="form-control" placeholder="password" id='pwd'>
         </div>
         <button class="btn btn-primary"  id="login">Login</button>
 	<button class="btn btn-primary"  id="logoff">Logoff</button>
@@ -44,10 +44,8 @@
 </nav>
 
  
-  
- 
  <div class="container">
-    <div class="panel panel-default">
+    <div class="panel panel-default" id="hide">
         <div class="panel-heading">
           <h3 class="panel-title">Novo shortened url</h3>
         </div>

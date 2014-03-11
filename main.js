@@ -4,6 +4,7 @@
  
  var socket = io.connect(domain);
  
+ 
   socket.on('conn', function (data) {
     console.log(data);
   });
@@ -31,12 +32,6 @@ $('table').append(shortColView.el);
 log();
 
 carrega();
-
-
-$('#user').val('mauricio@isban.pt');
-$('#pwd').val('1234');
-//login();
-
 
 
 //*****************************************************//
@@ -80,6 +75,7 @@ function login(evt){
       localStorage.setItem('token', data);
       localStorage.setItem('util', result.email);
       $('#usr').html('Welcome ' + localStorage.getItem('util'));
+      log();
     }
   })
 }
@@ -93,11 +89,21 @@ function logoff(evt){
 
 function log() {
   if (localStorage.getItem('token')) {
-  $('#usr').html('Welcome ' + localStorage.getItem('util'));
-}
-else {
-  $('#usr').html('Sign In');
-}
+    $('#hide').show();
+    $('#logoff').show();
+    $('#login').hide();
+    $('#user').hide();
+    $('#pwd').hide();
+    $('#usr').html('Welcome ' + localStorage.getItem('util'));
+  }
+  else {
+    $('#hide').hide();
+    $('#logoff').hide();
+    $('#login').show();
+    $('#user').show();
+    $('#pwd').show();
+    $('#usr').html('Sign In');
+  }
 }
 
 function encurtar(evt){
