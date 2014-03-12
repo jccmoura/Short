@@ -1,5 +1,14 @@
+#ppl , #sign{
+    color: gray;
+    vertical-align: middle;
+    padding-top: 15px;
+}
+
+#login-nav input { margin-bottom: 15px; }
+
 body {
     background-color: hsl(191, 52%, 50%);
+    margin-top:30px;
 }
 
 table {
@@ -25,23 +34,21 @@ td {
 	width: 200px;
 }
 
-nav {
-	color: white;
-	font-weight: bold;
-	vertical-align: middle;
-	font-size: 25px;
-	position:  relative;
-}
 
 #bt1{
-    position: absolute;
-    right: 120px;
+    font-size: small;
+}
+
+#msg{
+    color: gray;
+    font-size: small;
+    text-align: center;
 }
 
 .badge {
 	background-color: hsl(249, 82%, 50%);
 }
 
-#usr{
-    width:  200px;
-}
+
+
+

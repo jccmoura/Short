@@ -1,6 +1,6 @@
 
- var domain = 'http://api.mauricio.r42.in/';                    //PRO
- //var domain = 'http://localhost:8000/';                        //DEV
+ //var domain = 'http://api.mauricio.r42.in/';                    //PRO
+ var domain = 'http://localhost:8000/';                        //DEV
  
  var socket = io.connect(domain);
  
@@ -29,9 +29,12 @@ var shortColView = new ShortCollectionView({collection: shortCol});
 
 $('table').append(shortColView.el);
 
+$('#signup').hide();
+
 log();
 
 carrega();
+
 
 
 //*****************************************************//
@@ -56,6 +59,19 @@ $('#login').click(login);
 //logoff
 $('#logoff').click(logoff);
 
+//Sign In
+$(document).ready(function(){
+    //Handles menu drop down
+    $('.dropdown-menu').find('form').click(function (e) {
+        e.stopPropagation();
+    });
+});
+
+//Sign up
+$('#btsignup').click(openSU);
+$('#sbsignup').click(sbSignup(event))
+
+
 //*****************************************************//
 //                       Funções                 
 //*****************************************************//
@@ -74,7 +90,6 @@ function login(evt){
       var result = JSON.parse(data);
       localStorage.setItem('token', data);
       localStorage.setItem('util', result.email);
-      $('#usr').html('Welcome ' + localStorage.getItem('util'));
       log();
     }
   })
@@ -94,7 +109,8 @@ function log() {
     $('#login').hide();
     $('#user').hide();
     $('#pwd').hide();
-    $('#usr').html('Welcome ' + localStorage.getItem('util'));
+    $('#bt1').html(localStorage.getItem('util'));
+    $('#msg').html('Logged In');
   }
   else {
     $('#hide').hide();
@@ -102,7 +118,8 @@ function log() {
     $('#login').show();
     $('#user').show();
     $('#pwd').show();
-    $('#usr').html('Sign In');
+    $('#bt1').html('Sign In');
+    $('#msg').html('Logged Out');
   }
 }
 
@@ -156,5 +173,17 @@ function carrega(){
       shortColView.render();
     }
   })
+}
+
+function openSU() {
+  $('#signup').show();
+}
+
+function sbSignup(evt) {
+  evt.preventDefault();
+  if ($('#signup').hide())
+    $('#signup').hide()
+  else
+    $('#signup').show()
 }
 
