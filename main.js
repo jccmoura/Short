@@ -68,8 +68,7 @@ $(document).ready(function(){
 });
 
 //Sign up
-$('#btsignup').click(openSU);
-$('#sbsignup').click(sbSignup(event))
+$('#sbmsignup').click(sbSignup);
 
 
 //*****************************************************//
@@ -111,6 +110,8 @@ function log() {
     $('#pwd').hide();
     $('#bt1').html(localStorage.getItem('util'));
     $('#msg').html('Logged In');
+    $('#drop1').hide();
+    $('#sign').hide();
   }
   else {
     $('#hide').hide();
@@ -120,6 +121,8 @@ function log() {
     $('#pwd').show();
     $('#bt1').html('Sign In');
     $('#msg').html('Logged Out');
+    $('#drop1').show();
+    $('#sign').show();
   }
 }
 
@@ -175,15 +178,37 @@ function carrega(){
   })
 }
 
-function openSU() {
-  $('#signup').show();
-}
 
 function sbSignup(evt) {
   evt.preventDefault();
-  if ($('#signup').hide())
-    $('#signup').hide()
-  else
-    $('#signup').show()
+  console.log('Registar');
+  if ($('#mailUp').val()!='') {
+    var iniMail = $('#mailUp').val();
+    var pass = $('#pwdUp').val();
+    var cleanMail = iniMail.replace(/(<([^>]+)>)/ig, '');
+
+    console.log('Mail Clean ', cleanMail);
+  
+    //criar novo
+    $.ajax({
+      url: domain + 'register',
+      type: 'POST',
+      data: {
+        mail: cleanMail,
+        pass: pass,
+      },
+      success: function(res) {
+        console.log('Done! Result:', res)
+        $('#drop1').hide();
+        $('#sign').hide();
+        $('#user').val(cleanMail);
+        $('#pwd').val(pass);
+      },
+      error: function(xhr){
+        console.log(xhr.status );
+    }
+    });
+  }
+  
 }
 

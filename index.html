@@ -41,9 +41,9 @@
 	       <ul class="nav navbar-nav navbar-right">
 		  <li><span class="glyphicon glyphicon-edit" id="sign"></span></li>
 		  <!--AQUI-->
-		  <li class="dropdown">
+		  <li class="dropdown" id="drop1">
 			
-		      <a href="" class="dropdown-toggle" data-toggle="dropdown" >Sign Up <b class="caret"></b></a>
+		      <a href="" class="dropdown-toggle" data-toggle="dropdown">Sign Up <b class="caret"></b></a>
 		     <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
 			<li>
 			      <div class="row">
@@ -51,23 +51,17 @@
 					  <form class="form form-signup" role="form">
 							     <div class="form-group">
 								 <div class="input-group">
-								     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-								     <input type="text" class="form-control" placeholder="Username" />
-								 </div>
-							     </div>
-							     <div class="form-group">
-								 <div class="input-group">
 								     <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-								     <input type="text" class="form-control" placeholder="Email Address" />
+								     <input type="text" class="form-control" placeholder="Email Address" id="mailUp"/>
 								 </div>
 							     </div>
 							     <div class="form-group">
 								 <div class="input-group">
 								     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-								     <input type="password" class="form-control" placeholder="Password" />
+								     <input type="password" class="form-control" placeholder="Password"  id="pwdUp" />
 								 </div>
 							     </div>
-					  <button type="submit" class="btn btn-success btn-block" id="sbmsignup">Submit</button>
+					  <button  type="submit" class="btn btn-success btn-block" id="sbmsignup">Submit</button>
 				    </form>
 			      </div>	 
 			</li>
@@ -79,7 +73,7 @@
 		  <li class="dropdown">
 			
 		      <a href="" class="dropdown-toggle" data-toggle="dropdown" id="bt1">Sign in <b class="caret"></b></a>
-		     <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+		     <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;" id="drop2">
 			<li>
 			   <div class="row">
 			      <div class="col-md-12">
