@@ -75,8 +75,7 @@ $('#sbmsignup').click(sbSignup);
 //                       Funções                 
 //*****************************************************//
 
-function login(evt){
-  evt.preventDefault();
+function login(){
   var user = $('#user').val();
   var pwd = $('#pwd').val();
   console.log('login: ', user, pwd );
