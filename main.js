@@ -1,5 +1,5 @@
 
- var domain = 'http://api.mauricio.r42.in/';                    //PRO
+ var domain = '//api.mauricio.r42.in/';                    //PRO
  //var domain = 'http://localhost:8000/';                        //DEV
  
  var socket = io.connect(domain);
@@ -90,6 +90,10 @@ function login(evt){
       localStorage.setItem('token', data);
       localStorage.setItem('util', result.email);
       log();
+    },
+    error: function(xhr){
+        console.log(xhr.status );
+        $('#msg').html('Dados Incorrectos. Volte a tentar.');
     }
   })
 }
