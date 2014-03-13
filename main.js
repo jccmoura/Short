@@ -112,7 +112,7 @@ function log() {
     $('#login').hide();
     $('#user').hide();
     $('#pwd').hide();
-    $('#bt1').html(localStorage.getItem('util'));
+    $('#bt1').html(localStorage.getItem('util')).append($('<b class="caret"></b>'));;
     $('#msg').html('Logged In');
     $('#drop1').hide();
     $('#sign').hide();
@@ -123,7 +123,7 @@ function log() {
     $('#login').show();
     $('#user').show();
     $('#pwd').show();
-    $('#bt1').html('Sign In');
+    $('#bt1').html('Sign In').append($('<b class="caret"></b>'));
     $('#msg').html('Logged Out');
     $('#drop1').show();
     $('#sign').show();
