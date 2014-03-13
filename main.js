@@ -29,7 +29,7 @@ var shortColView = new ShortCollectionView({collection: shortCol});
 
 $('table').append(shortColView.el);
 
-$('#signup').hide();
+$('#regmsg').hide();
 
 log();
 
@@ -207,6 +207,7 @@ function sbSignup(evt) {
         $('#sign').hide();
         $('#user').val(cleanMail);
         $('#pwd').val(pass);
+        $('#regmsg').show();
       },
       error: function(xhr){
         console.log(xhr.status );
